@@ -6,7 +6,7 @@ namespace Task11.Api
 {
     public class RequestService : IRequestService
     {
-        private string AccessToken { get; } = "ab457116572fa95d76686be84420dd7f";
+        private string AccessToken { get; } = Constants.API_TOKEN;
         private HttpClient Client { get; }
 
         public RequestService()
@@ -16,14 +16,16 @@ namespace Task11.Api
 
         public async ValueTask<double> GetRate(string curr1, string curr2)
         {
-            HttpResponseMessage message = await Client.GetAsync(@"http://api.exchangeratesapi.io/v1/latest?access_key=" + AccessToken);
+            HttpResponseMessage message = await Client.GetAsync(Constants.API_HTTP_PATH + Constants.API_LAST_VALUE + 
+                Constants.API_HTTP_SUFX + AccessToken);
             string line = await message.Content.ReadAsStringAsync();
             return ConvertResponse(line, curr1, curr2);
         }
 
         public async ValueTask<double> GetRate(string curr1, string curr2, DateTime dt)
         {
-            HttpResponseMessage message = await Client.GetAsync(@"http://api.exchangeratesapi.io/v1/" + dt.ToString("yyyy-MM-dd") + "?access_key=" + AccessToken);
+            HttpResponseMessage message = await Client.GetAsync(Constants.API_HTTP_PATH + dt.ToString(Constants.API_DATE_FORMAT) + 
+                Constants.API_HTTP_SUFX + AccessToken);
             string line = await message.Content.ReadAsStringAsync();
             return ConvertResponse(line, curr1, curr2);
         }

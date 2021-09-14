@@ -13,7 +13,7 @@ namespace Task11.TBot
 {
     public class TelegramService : ITelegramService
     {
-        private string Token { get; } = "1961626635:AAHoazzOmqi-WNn2Xm4hdChjpJ41_3oh9zQ";
+        private string Token { get; } = Constants.TELEGRAM_TOKEN;
         private Dictionary<long, UserControl> Chats { get; }
         private TelegramBotClient Client { get; set; }
         private IRequestService HttpService { get; }
@@ -44,7 +44,7 @@ namespace Task11.TBot
                 _ => exception.ToString()
             };
 
-            Console.WriteLine(ErrorMessage);        // logger
+            Console.WriteLine(ErrorMessage);
             return Task.CompletedTask;
         }
 

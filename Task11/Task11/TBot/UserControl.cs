@@ -80,7 +80,7 @@ namespace Task11.TBot
                 catch
                 {
                     await Client.SendTextMessageAsync(
-                    ChatID, "Wrong date format");
+                    ChatID, Constants.ERROR_DATE_FORMAT);
                     return;
                 }
             }
@@ -119,7 +119,7 @@ namespace Task11.TBot
         {
             await Client.SendTextMessageAsync(
                     ChatID,
-                    "Rate for: " + State.FirstCurrency + "/" + State.SecondCurrency + ": " + State.Rate + "\n" +
+                    Constants.FINISH_MESS_HEAD + State.FirstCurrency + "/" + State.SecondCurrency + ": " + State.Rate + "\n" +
                     State.Amount + " " + State.FirstCurrency + " = " + (State.Rate * State.Amount) + " " + State.SecondCurrency);
         }
 
