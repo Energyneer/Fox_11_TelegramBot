@@ -17,7 +17,7 @@ namespace Task11.TBot
             State = new UserState();
         }
 
-        public async void IncomingMessage(string text)
+        public void IncomingMessage(string text)
         {
             switch (State.CurrentStep)
             {

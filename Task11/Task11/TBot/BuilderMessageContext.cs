@@ -8,24 +8,9 @@ namespace Task11.TBot
     {
         public static Dictionary<string, string> CurrenciesDesc { get; }
 
-
         static BuilderMessageContext()
         {
-            CurrenciesDesc = BuildCurrenciesDesc();
-        }
-
-        private static Dictionary<string, string> BuildCurrenciesDesc()
-        {
-            Dictionary<string, string> result = new Dictionary<string, string> {
-                { "USD", "United States Dollar" },
-                { "EUR", "Euro" },
-                { "JPY", "Japanese Yen" },
-                { "GBP", "Pound Sterling" },
-                { "RUB", "Russian Ruble" },
-                { "UAH", "Ukrainian Hryvnia" },
-                { "CHF", "Swiss Franc" },
-                { "AUD", "Australian Dollar" } };
-            return result;
+            CurrenciesDesc = Constants.CURRENCIES;
         }
 
         public static ReplyKeyboardMarkup BuildСurrencyKeyboard(string exception)

@@ -1,4 +1,6 @@
-﻿namespace Task11
+﻿using System.Collections.Generic;
+
+namespace Task11
 {
     public class Constants
     {
@@ -17,5 +19,15 @@
         public const string ERROR_HEADER = "Error while process. Try later.";
         public const string ERROR_DATE_FORMAT = "Wrong date format";
         public const string FINISH_MESS_HEAD = "Rate for: ";
+
+        public static readonly Dictionary<string, string> CURRENCIES = new Dictionary<string, string> {
+                { "USD", "United States Dollar" },
+                { "EUR", "Euro" },
+                { "JPY", "Japanese Yen" },
+                { "GBP", "Pound Sterling" },
+                { "RUB", "Russian Ruble" },
+                { "UAH", "Ukrainian Hryvnia" },
+                { "CHF", "Swiss Franc" },
+                { "AUD", "Australian Dollar" } };
     }
 }
